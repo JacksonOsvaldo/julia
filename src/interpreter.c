@@ -766,9 +766,6 @@ SECT_INTERP static jl_value_t *eval_body(jl_array_t *stmts, interpreter_state *s
             assert(n <= jl_source_nslots(s->src) && n > 0);
             s->locals[n - 1] = NULL;
         }
-        else if (toplevel && jl_is_linenode(stmt)) {
-            jl_lineno = jl_linenode_line(stmt);
-        }
         else {
             eval_stmt_value(stmt, s);
         }
